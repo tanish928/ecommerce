@@ -11,6 +11,11 @@ import Testimonials from "./components/Testimonials/Testimonials";
 import Footer from "./components/Footer/Footer";
 import Popup from "./components/Popup/Popup";
 import CategoryCards from "./components/category/Men";
+import CategoryCards1 from "./components/Footer/cards/women";
+import HeroBanner from "./components/Shop/HeroBanner ";
+import FeatureIcons from "./components/icons/icons";
+import LoginPage from "./components/login/login";
+import SignInPage from "./components/signup/signup";
 
 const App = () => {
   const [orderPopup, setOrderPopup] = React.useState(false);
@@ -30,16 +35,23 @@ const App = () => {
 
   return (
     <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
-      <Navbar handleOrderPopup={handleOrderPopup} />
+      {/* <Navbar handleOrderPopup={handleOrderPopup} />
       <Hero handleOrderPopup={handleOrderPopup} />
       <Products />
-      <CategoryCards/>
       <TopProducts handleOrderPopup={handleOrderPopup} />
-      <Banner />
-      <Subscribe />
-      <Products />
-      <Testimonials />
-      <Footer />
+      <CategoryCards/>
+      <CategoryCards1/>
+      <HeroBanner/>
+      <FeatureIcons/>   */}
+       <LoginPage/>
+      <SignInPage/>
+      
+      
+      {/* <Banner /> */}
+      {/* <Subscribe /> */}
+      {/* <Products /> */}
+      {/* <Testimonials /> */}
+      {/* <Footer /> */}
       <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
     </div>
   );

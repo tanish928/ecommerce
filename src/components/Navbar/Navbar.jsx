@@ -5,6 +5,9 @@ import {
   FiShoppingCart,
   FiUser,
   FiSearch,
+  FiHome,
+  FiGift,
+  FiTag,
 } from "react-icons/fi";
 
 const Navbar = () => {
@@ -38,19 +41,19 @@ const Navbar = () => {
               Shop<span className="text-secondary">Smart</span>
             </a>
 
-            {/* Main Links */}
+            {/* Main Links with Icons */}
             <nav className="hidden md:flex gap-6 text-gray-800 dark:text-gray-200 text-sm font-medium">
-              <a href="#everything" id="everything" className="hover:text-primary">
-                Everything
+              <a href="#everything" className="flex items-center hover:text-primary">
+                <FiHome className="mr-2" /> Everything
               </a>
-              <a href="#women" id="women" className="hover:text-primary">
-                Women
+              <a href="#women" className="flex items-center hover:text-primary">
+                <FiGift className="mr-2" /> Women
               </a>
-              <a href="#men" id="men" className="hover:text-primary">
-                Men
+              <a href="#men" className="flex items-center hover:text-primary">
+                <FiTag className="mr-2" /> Men
               </a>
-              <a href="#accessories" id="accessories" className="hover:text-primary">
-                Accessories
+              <a href="#accessories" className="flex items-center hover:text-primary">
+                <FiTag className="mr-2" /> Accessories
               </a>
             </nav>
           </div>
@@ -75,10 +78,10 @@ const Navbar = () => {
               </span>
             </button>
 
-            {/* Admin Icon */}
-            <button className="text-2xl text-gray-800 dark:text-gray-200">
+            {/* Admin Link Icon */}
+            <a href="#Login" className="text-2xl text-gray-800 dark:text-gray-200">
               <FiUser />
-            </button>
+            </a>
 
             {/* Mobile Menu Toggle */}
             <button
@@ -94,17 +97,17 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden px-6 pb-4 bg-white dark:bg-gray-900 space-y-4 text-gray-800 dark:text-gray-300">
-          <a href="#everything" id="everything-mobile" className="block hover:text-primary">
-            Everything
+          <a href="#everything" className="block flex items-center hover:text-primary">
+            <FiHome className="mr-2" /> Everything
           </a>
-          <a href="#women" id="women-mobile" className="block hover:text-primary">
-            Women
+          <a href="#women" className="block flex items-center hover:text-primary">
+            <FiGift className="mr-2" /> Women
           </a>
-          <a href="#men" id="men-mobile" className="block hover:text-primary">
-            Men
+          <a href="#men" className="block flex items-center hover:text-primary">
+            <FiTag className="mr-2" /> Men
           </a>
-          <a href="#accessories" id="accessories-mobile" className="block hover:text-primary">
-            Accessories
+          <a href="#accessories" className="block flex items-center hover:text-primary">
+            <FiTag className="mr-2" /> Accessories
           </a>
           <a
             href="#about"
