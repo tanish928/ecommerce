@@ -1,105 +1,122 @@
 import React, { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { FiMail } from 'react-icons/fi';
 
 const SignInPage = () => {
+  const [name, setName] = useState('');
+  const [mobile, setMobile] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
+    console.log('Name:', name);
+    console.log('Mobile:', mobile);
     console.log('Email:', email);
     console.log('Password:', password);
+    console.log('Remember Me:', rememberMe);
   };
 
   return (
-    <div
-      className="min-h-screen flex items-center justify-center px-4 bg-cover bg-center"
-      style={{
-        backgroundImage:
-          "url('https://cdn.pixabay.com/photo/2017/08/05/00/12/girl-2581913_1280.jpg')",
-      }}
-    >
-      <div className="w-full max-w-md p-8 bg-opacity-40 shadow-lg">
-      {/* Heading */}
-        <h1 className="text-4xl font-bold text-gray-800 mb-1">Sign In</h1>
-        <p className="text-sm text-gray-600 mb-6">
-          Sign in with your email address
-        </p>
+    <div className="flex flex-col md:flex-row h-screen overflow-hidden">
+      {/* Left Image Section */}
+      <div className="relative w-full md:w-1/2 h-64 md:h-full">
+        <img
+          src="https://cdn.pixabay.com/photo/2017/08/05/00/12/girl-2581913_1280.jpg"
+          alt="Login Visual"
+          className="absolute inset-0 object-cover w-full h-full"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center px-4">
+          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold text-center leading-snug">
+            Welcome to Urban SWagger!
+          </h1>
+        </div>
+      </div>
 
-        <form onSubmit={handleSubmit}>
-          {/* Email Field */}
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700 mb-1">
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder-gray-500"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
+      {/* Right Login Form Section */}
+      <div className="w-full md:w-1/2 flex items-center justify-center bg-white py-10 md:py-0">
+        <div className="w-full max-w-md px-6 sm:px-10">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">Sign In</h2>
+          <p className="text-gray-500 mb-6">Please sign in to continue</p>
 
-          {/* Password Field */}
-          <div className="mb-6">
-            <label htmlFor="password" className="block text-gray-700 mb-1">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder-gray-500"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
+          <form onSubmit={handleLogin}>
+            {/* Name */}
+            <div className="mb-4">
+              <input
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className="w-full px-3 py-3 border-b border-gray-400 focus:outline-none focus:border-gray-800"
+              />
+            </div>
 
-          {/* Sign In Button */}
-          <div className="flex justify-center mb-4">
+            {/* Mobile Number */}
+            <div className="mb-4">
+              <input
+                type="tel"
+                placeholder="Mobile Number"
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value)}
+                required
+                className="w-full px-3 py-3 border-b border-gray-400 focus:outline-none focus:border-gray-800"
+              />
+            </div>
+
+            {/* Email */}
+            <div className="mb-4">
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="w-full px-3 py-3 border-b border-gray-400 focus:outline-none focus:border-gray-800"
+              />
+            </div>
+
+            {/* Password */}
+            <div className="mb-4">
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="w-full px-3 py-3 border-b border-gray-400 focus:outline-none focus:border-gray-800"
+              />
+            </div>
+
+            {/* Remember Me + Forgot Password */}
+            <div className="mb-6 pb-4">
+              <div className="flex items-center justify-between text-sm text-gray-600">
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={rememberMe}
+                    onChange={() => setRememberMe(!rememberMe)}
+                    className="accent-blue-600"
+                  />
+                  Remember me for 30 days
+                </label>
+                <button
+                  type="button"
+                  className="text-gray-800 hover:underline border-b border-gray-300"
+                >
+                  Forgot Password?
+                </button>
+              </div>
+            </div>
+
+            {/* Sign In Button */}
             <button
               type="submit"
-              className="w-full py-3 text-white rounded-lg bg-blue-600 hover:bg-blue-700 hover:scale-105 hover:shadow-lg transition-all duration-300"
+              className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-900 transition mb-3"
             >
               Sign In
             </button>
-          </div>
-
-          {/* Divider below Sign In button */}
-          <div className="border-t border-gray-300 my-4" />
-        </form>
-
-        {/* "Or continue with" */}
-        <p className="text-sm text-gray-600 mb-4 text-center">
-          or continue with
-        </p>
-
-        {/* Social Buttons */}
-        <div className="flex gap-4 mb-4">
-          <button className="flex-1 flex items-center justify-center gap-2 py-2 border border-gray-300 rounded-lg transition bg-white hover:bg-gray-100">
-            <FcGoogle className="text-xl" />
-            <span className="text-sm text-gray-700">Google</span>
-          </button>
-          <button className="flex-1 flex items-center justify-center gap-2 py-2 border border-gray-300 rounded-lg transition bg-white hover:bg-gray-100">
-            <FiMail className="text-xl text-gray-600" />
-            <span className="text-sm text-gray-700">Email</span>
-          </button>
-        </div>
-
-        {/* Terms and Conditions */}
-        <div className="border-t border-gray-300 pt-4">
-          <p className="text-xs text-center text-gray-500">
-            By registering, you agree to our{' '}
-            <span className="text-blue-600 underline cursor-pointer">
-              Terms and Conditions
-            </span>
-            .
-          </p>
+          </form>
         </div>
       </div>
     </div>

@@ -8,13 +8,54 @@ import { Autoplay } from 'swiper/modules';
 SwiperCore.use([Autoplay]);
 
 const categories = [
-  { name: "Classic Fit T-shirts", image: "https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2019/12/home-new-bg-free-img.jpg" },
-  { name: "Cargos", image: "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=800&q=80" },
-  { name: "Pants", image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80" },
-  { name: "Full Sleeve T-shirts", image: "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=800&q=80" },
-  { name: "Vests", image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80" },
-  { name: "Sneakers", image: "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=800&q=80" },
-  { name: "Joggers", image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=80" },
+  {
+    name: "Classic Fit T-shirts",
+    image: "https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2019/12/banner-03.jpg",
+  },
+  {
+    name: "Cargos",
+    image: "https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2019/12/home-new-bg-free-img.jpg",
+  },
+  {
+    name: "Pants",
+    image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    name: "Full Sleeve T-shirts",
+    image: "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    name: "Vests",
+    image: "https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2019/12/home-new-bg-free-img.jpg",
+  },
+  {
+    name: "Sneakers",
+    image: "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    name: "Classic Fit T-shirts",
+    image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    name: "Cargos",
+    image: "https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2019/12/home-new-bg-free-img.jpg",
+  },
+  {
+    name: "Pants",
+    image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    name: "Full Sleeve T-shirts",
+    image: "https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2019/12/home-new-bg-free-img.jpg",
+  },
+  {
+    name: "Vests",
+    image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    name: "Sneakers",
+    image: "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=800&q=80",
+  },
 ];
 
 const CategoryCards = () => {
@@ -24,6 +65,8 @@ const CategoryCards = () => {
         Shop by Category - Men
       </h2>
       <Swiper
+        dir="rtl"
+        loop={true}
         spaceBetween={20}
         slidesPerView={2}
         breakpoints={{
@@ -34,8 +77,8 @@ const CategoryCards = () => {
         autoplay={{
           delay: 2000,
           disableOnInteraction: false,
+          reverseDirection: true,
         }}
-        loop={true}
       >
         {categories.map((category, index) => (
           <SwiperSlide key={index}>

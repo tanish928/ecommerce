@@ -35,23 +35,21 @@ const App = () => {
 
   return (
     <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
-      {/* <Navbar handleOrderPopup={handleOrderPopup} />
+      <Navbar handleOrderPopup={handleOrderPopup} />
       <Hero handleOrderPopup={handleOrderPopup} />
       <Products />
       <TopProducts handleOrderPopup={handleOrderPopup} />
       <CategoryCards/>
       <CategoryCards1/>
       <HeroBanner/>
-      <FeatureIcons/>   */}
-       <LoginPage/>
-      <SignInPage/>
-      
-      
-      {/* <Banner /> */}
+      <FeatureIcons/>  
+       {/* <LoginPage/>
+       <SignInPage/> */}
+       {/* <Banner /> */}
       {/* <Subscribe /> */}
       {/* <Products /> */}
       {/* <Testimonials /> */}
-      {/* <Footer /> */}
+      <Footer />
       <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
     </div>
   );

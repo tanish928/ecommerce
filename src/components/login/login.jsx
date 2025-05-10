@@ -1,69 +1,125 @@
 import React, { useState } from 'react';
+import { FcGoogle } from 'react-icons/fc';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     console.log('Email:', email);
     console.log('Password:', password);
-    // Add your authentication logic here
+    console.log('Remember Me:', rememberMe);
   };
 
   return (
-    <div className="relative w-full h-screen bg-cover bg-center" style={{ backgroundImage: 'url(https://plus.unsplash.com/premium_photo-1683141052679-942eb9e77760?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)' }}>
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-      
-      <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-8 md:px-16">
-        <div>
-          <h2 className="text-2xl font-bold text-center text-white mb-6">Login to Your Account</h2>
-          
-          <form onSubmit={handleSubmit}>
-            {/* Email Input */}
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-white">Email</label>
+    <div className="flex flex-col md:flex-row h-screen overflow-hidden">
+      {/* Left Image Section */}
+      <div className="relative w-full md:w-1/2 h-64 md:h-full">
+        <img
+          src="https://cdn.pixabay.com/photo/2017/08/05/00/12/girl-2581913_1280.jpg"
+          alt="Login Visual"
+          className="absolute inset-0 object-cover w-full h-full"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center px-4">
+          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold text-center leading-snug">
+            Welcome to Urban SWagger!
+          </h1>
+        </div>
+      </div>
+
+      {/* Right Login Form Section */}
+      <div className="w-full md:w-1/2 flex items-center justify-center bg-white py-10 md:py-0">
+        <div className="w-full max-w-md px-6 sm:px-10">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">Login</h2>
+          <p className="text-gray-500 mb-6">Welcome back! Please enter your details</p>
+
+          <form onSubmit={handleLogin}>
+            {/* Email */}
+            <div className="mb-6">
               <input
                 type="email"
-                id="email"
-                className="w-full p-3 mt-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                placeholder="Enter your email"
+                placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                className="w-full px-3 py-3 border-b border-gray-400 focus:outline-none focus:border-gray-800"
               />
             </div>
 
-            {/* Password Input */}
-            <div className="mb-6">
-              <label htmlFor="password" className="block text-white">Password</label>
+            {/* Password */}
+            <div className="mb-4">
               <input
                 type="password"
-                id="password"
-                className="w-full p-3 mt-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                placeholder="Enter your password"
+                placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                className="w-full px-3 py-3 border-b border-gray-400 focus:outline-none focus:border-gray-800"
               />
             </div>
 
-            {/* Submit Button with hover effect */}
-          <div className="flex justify-center">
-  <button
-    type="submit"
-    className="w-60 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark hover:scale-105 hover:shadow-lg transition-all duration-300"
-  >
-    Login
-  </button>
-</div>
+            {/* Remember Me + Forgot Password */}
+            <div className="mb-6 pb-4">
+              <div className="flex items-center justify-between text-sm text-gray-600">
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={rememberMe}
+                    onChange={() => setRememberMe(!rememberMe)}
+                    className="accent-blue-600"
+                  />
+                  Remember me for 30 days
+                </label>
+                <button
+                  type="button"
+                  className="text-gray-800 hover:underline border-b border-gray-300"
+                >
+                  Forgot Password?
+                </button>
+              </div>
+            </div>
 
+            {/* Login Button */}
+            <button
+              type="submit"
+              className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-900 transition mb-3"
+            >
+             Log in
+            </button>
           </form>
 
-          <div className="text-center mt-4">
-            <p className="text-sm text-gray-300">
-              Don't have an account? <a href="/signup" className="text-primary hover:underline">Sign up</a>
-            </p>
+          {/* Register Button */}
+          <button
+            type="button"
+            className="w-full border border-black text-black py-3 rounded-lg hover:bg-gray-100 transition mb-4"
+          >
+            Register
+          </button>
+
+          {/* Divider */}
+          <div className="flex items-center my-6">
+            <div className="flex-grow border-t border-gray-400" />
+            <span className="mx-4 text-gray-500">or</span>
+            <div className="flex-grow border-t border-gray-400" />
+          </div>
+
+          {/* Google Sign-in Button */}
+          <button
+            type="button"
+            className="w-full flex items-center justify-center gap-2 border border-gray-800 py-3 rounded-lg hover:bg-gray-100 hover:shadow transition"
+          >
+            <FcGoogle className="text-xl" />
+            <span className="text-sm text-gray-700">Sign in with Google</span>
+          </button>
+
+          {/* Sign Up Prompt */}
+          <div className="text-center text-sm text-gray-800 mt-4">
+            Don’t have an account?{' '}
+            <span className="text-black cursor-pointer hover:underline border-b border-gray-400">
+              Sign up for free
+            </span>
           </div>
         </div>
       </div>

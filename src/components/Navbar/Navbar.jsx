@@ -38,7 +38,7 @@ const Navbar = () => {
               href="/"
               className="text-3xl font-extrabold text-primary dark:text-white tracking-wide"
             >
-              Shop<span className="text-secondary">Smart</span>
+              Urban<span className="text-secondary">Swagger</span>
             </a>
 
             {/* Main Links with Icons */}
